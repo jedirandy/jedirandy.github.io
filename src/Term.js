@@ -27,7 +27,10 @@ class Term extends Component {
     term.on('key', (key: string, ev) => {
       const printable = !ev.altKey && !ev.altGraphKey && !ev.ctrlKey && !ev.metaKey;
 
-      if (ev.keyCode === 13) {
+      if (ev.keyCode === 13) { // enter
+        if (input.length === 0) {
+          return term.prompt();
+        }
         const command = input.join('');
         const lines = execute(command, term);
         term.writeln('')
