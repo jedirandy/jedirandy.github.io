@@ -34,7 +34,7 @@ class Term extends Component {
         const command = input.join('');
         const lines = execute(command, term);
         term.writeln('')
-        writeLines(term, lines, 200).then(() => term.prompt());
+        writeLines(term, lines, 100).then(() => term.prompt());
         input.splice(0);
       } else if (ev.keyCode === 8) {
         // Do not delete the prompt
@@ -65,7 +65,6 @@ class Term extends Component {
 }
 
 const execute = (input: string, term: Object): Array<string> =>  {
-  // todo: return a function to execute
   switch (input) {
     case 'help':
       return [
