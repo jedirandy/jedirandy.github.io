@@ -77,7 +77,6 @@ const execute = (input: string, term: Object): Array<string> =>  {
     case 'about':
       return [
         'Hello! My name is Sheng Ran',
-        'Currently I work as a software engineer at Criteo in la Ville-Lumière - Paris',
         'I am a Scala and JavaScript developer, sometimes play with Haskell and Elm',
         'I build applications, tools for large-scale data analytics products',
         'My projects covers domains such as web applications, data visualization tools, Big Data tools, etc.'
