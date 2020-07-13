@@ -6,11 +6,11 @@ import { write, writeln } from './utils'
 
 class Shell {
     term: Terminal
-    buffer: Array<string>
+    buffer: string[]
     programs: {
         [k: string]: Program
     }
-    history: Array<string>
+    history: string[]
 
     constructor(term: Terminal) {
         this.term = term
@@ -19,12 +19,15 @@ class Shell {
         this.programs = {
             'clear': () => this.clear(),
         }
-        this.term.onKey(({ domEvent }) => this.onKeyEvent(domEvent))
         const query = new URLSearchParams(location.search)
         if (query.get('init') === 'false') {
             this.printPrompt()
         } else {
-            init(this.term).then(() => this.printPrompt())
+            init(this.term).then(() => {
+                this.term.onKey(({ domEvent }) => this.onKeyEvent(domEvent))
+                this.printPrompt()
+                this.term.focus()
+            })
         }
     }
 
