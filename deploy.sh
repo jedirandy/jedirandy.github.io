@@ -1,4 +1,6 @@
 #!/bin/bash
 set -e
 
-git subtree push --prefix dist origin gh-pages
+hash=$(git subtree split --prefix dist)
+echo "Publishing ${hash}"
+git push origin ${hash}:master
