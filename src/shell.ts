@@ -14,6 +14,7 @@ class Shell {
 
     constructor(term: Terminal) {
         this.term = term
+        // input characters buffer
         this.buffer = []
         this.history = []
         this.programs = {
@@ -56,7 +57,7 @@ class Shell {
                         this.history.push(cmd)
                     } else {
                         if (cmd.length > 0)
-                            await this.term.writeln(`command not found: ${cmd}, use 'help' for available commands`)
+                            await writeln(this.term, `command not found: ${cmd}, use 'help' for available commands`)
                     }
                     this.buffer = []
                     this.printPrompt()

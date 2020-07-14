@@ -10,6 +10,7 @@ import help from './bin/help'
 import about from './bin/about'
 import bye from './bin/bye'
 import weather from './bin/weather'
+import fortune from './bin/fortune'
 
 const backgroundColor = '#182631'
 const div = document.getElementById('term')
@@ -32,3 +33,4 @@ shell.addProgram('help', help)
 shell.addProgram('about', about)
 shell.addProgram('bye', bye)
 shell.addProgram('weather', weather)
+shell.addProgram('fortune', fortune)

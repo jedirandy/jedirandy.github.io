@@ -13,6 +13,7 @@ const weather: Program = async (term: Terminal, ...args: string[]) => {
     } catch (e) {
         await writeWithDelay(term, `Error fetching the data, try again later`, 20, true)
         console.error('Failed to fetch the weather', e)
+        return 1
     }
     return 0
 }
