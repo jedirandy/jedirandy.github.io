@@ -23,6 +23,7 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack"
+    "build": "webpack",
+    "lint": "tslint --project ."
   }
 }

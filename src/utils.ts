@@ -1,4 +1,4 @@
-import { Terminal } from "xterm"
+import { Terminal } from 'xterm'
 
 function delay(ms: number): Promise<void> {
     return new Promise((resolve, _) => {

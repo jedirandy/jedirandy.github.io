@@ -17,15 +17,15 @@ const init = async (term: Terminal) => {
     await writeln(term, '')
 
     // 3d ascii hiya
-    await writeWithDelay(term, ' ___  ___  ___      ___    ___ ________  ___       ', 1, true);
-    await writeWithDelay(term, '|\\  \\|\\  \\|\\  \\    |\\  \\  /  /|\\   __  \\|\\  \\      ', 1, true);
-    await writeWithDelay(term, '\\ \\  \\\\\\  \\ \\  \\   \\ \\  \\/  / | \\  \\|\\  \\ \\  \\     ', 1, true);
-    await writeWithDelay(term, ' \\ \\   __  \\ \\  \\   \\ \\    / / \\ \\   __  \\ \\  \\    ', 1, true);
-    await writeWithDelay(term, '  \\ \\  \\ \\  \\ \\  \\   \\/  /  /   \\ \\  \\ \\  \\ \\__\\   ', 1, true);
-    await writeWithDelay(term, '   \\ \\__\\ \\__\\ \\__\\__/  / /      \\ \\__\\ \\__\\|__|   ', 1, true);
-    await writeWithDelay(term, '    \\|__|\\|__|\\|__|\\___/ /        \\|__|\\|__|   ___ ', 1, true);
-    await writeWithDelay(term, '                  \\|___|/                     |\\__\\', 1, true);
-    await writeWithDelay(term, '                                              \\|__|', 1, true);
+    await writeWithDelay(term, ' ___  ___  ___      ___    ___ ________  ___       ', 1, true)
+    await writeWithDelay(term, '|\\  \\|\\  \\|\\  \\    |\\  \\  /  /|\\   __  \\|\\  \\      ', 1, true)
+    await writeWithDelay(term, '\\ \\  \\\\\\  \\ \\  \\   \\ \\  \\/  / | \\  \\|\\  \\ \\  \\     ', 1, true)
+    await writeWithDelay(term, ' \\ \\   __  \\ \\  \\   \\ \\    / / \\ \\   __  \\ \\  \\    ', 1, true)
+    await writeWithDelay(term, '  \\ \\  \\ \\  \\ \\  \\   \\/  /  /   \\ \\  \\ \\  \\ \\__\\   ', 1, true)
+    await writeWithDelay(term, '   \\ \\__\\ \\__\\ \\__\\__/  / /      \\ \\__\\ \\__\\|__|   ', 1, true)
+    await writeWithDelay(term, '    \\|__|\\|__|\\|__|\\___/ /        \\|__|\\|__|   ___ ', 1, true)
+    await writeWithDelay(term, '                  \\|___|/                     |\\__\\', 1, true)
+    await writeWithDelay(term, '                                              \\|__|', 1, true)
     await writeln(term, '')
 
     await writeWithDelay(term, chalk`{greenBright Welcome to Sheng's terminal @ ${location.host}}`, 20, true)

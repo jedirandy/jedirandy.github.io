@@ -1,6 +1,6 @@
-import { Terminal } from "xterm";
-import { Program } from '../types';
-import { writeln } from '../utils';
+import { Terminal } from 'xterm'
+import { Program } from '../types'
+import { writeln } from '../utils'
 
 
 const help: Program = async (term: Terminal, ...args: string[]) => {

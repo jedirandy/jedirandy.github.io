@@ -1,6 +1,6 @@
-import { Program } from "../types";
-import { Terminal } from "xterm";
-import { writeWithDelay, write, writeln } from "../utils";
+import { Program } from '../types'
+import { Terminal } from 'xterm'
+import { writeWithDelay, write, writeln } from '../utils'
 
 const fortune: Program = async (term: Terminal, ...args: string[]) => {
     const loc = args.length > 0 ? args.join(' ') : ''

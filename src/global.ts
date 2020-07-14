@@ -1,4 +1,4 @@
-import { Instance } from 'chalk';
+import { Instance } from 'chalk'
 
 const chalk = new Instance({ level: 2})
 

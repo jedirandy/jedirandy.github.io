@@ -1,5 +1,5 @@
-import { writeln, writeWithDelay } from "../utils";
-import { Program } from "../types";
+import { writeln, writeWithDelay } from '../utils'
+import { Program } from '../types'
 import { chalk } from '../global'
 
 const about: Program = async (term) => {

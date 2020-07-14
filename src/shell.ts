@@ -90,4 +90,4 @@ class Shell {
     }
 }
 
-export default Shell;
+export default Shell
