@@ -9,7 +9,7 @@
         "no-trailing-whitespace": false,
         "comment-format": false,
         "quotemark": false,
-        "no-console": true,
+        "no-console": false,
         "one-line": false,
         "no-consecutive-blank-lines": false,
         "curly": false

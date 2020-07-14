@@ -10,9 +10,9 @@ const init = async (term: Terminal) => {
     await writeWithDelay(term, chalk`{redBright [${new Date().toLocaleString()}] Kernel panic: the world is on fire}`, 20)
     await writeWithDelay(term, chalk`{redBright !!!}`, 100, true)
     await delay(Math.random() * 1000)
-    await writeWithDelay(term, chalk`{yellowBright [${new Date().toLocaleString()}] let's not worry about it for now, resume initialization}`, 20)
+    await writeWithDelay(term, chalk`{yellowBright [${new Date().toLocaleString()}] Let's not worry about it for now, resume initialization}`, 20)
     await writeWithDelay(term, chalk`{yellowBright ...}`, 200, true)
-    await writeWithDelay(term, `[${new Date().toLocaleString()}] Initialized`, 20, true)
+    await writeWithDelay(term, chalk`{greenBright [${new Date().toLocaleString()}] Initialized}`, 20, true)
     await writeln(term, '')
 
     // 3d ascii hiya
@@ -28,10 +28,14 @@ const init = async (term: Terminal) => {
     await writeln(term, '')
 
     await writeWithDelay(term, chalk`{greenBright Welcome to Sheng's terminal @ ${location.host}}`, 20, true)
-    const res = await fetch('https://wttr.in/?format=3')
-    if (res.status === 200) {
-        const weatherText = await res.text()
-        await writeWithDelay(term, `Current weather: ${weatherText.replace('\n', '')}`, 20, true)
+    try {
+        const res = await fetch('https://wttr.in/?format=3')
+        if (res.status === 200) {
+            const weatherText = await res.text()
+            await writeWithDelay(term, `Current weather: ${weatherText.replace('\n', '')}`, 20, true)
+        }
+    } catch (e) {
+        console.error('Failed to fetch the weather', e)
     }
     await writeWithDelay(term, chalk`{yellowBright Type in 'help' for available commands}`, 20, true)
     await writeln(term, '')
