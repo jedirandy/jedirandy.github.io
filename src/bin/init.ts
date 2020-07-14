@@ -1,7 +1,8 @@
-import { Program } from '../types';
-import { Terminal } from 'xterm';
-import { write, writeWithDelay, delay, writeln } from '../utils';
+import { Program } from '../types'
+import { Terminal } from 'xterm'
+import { write, writeWithDelay, delay, writeln } from '../utils'
 import { chalk } from '../global'
+import weather from './weather'
 
 const init = async (term: Terminal) => {
     term.reset()
@@ -28,15 +29,7 @@ const init = async (term: Terminal) => {
     await writeln(term, '')
 
     await writeWithDelay(term, chalk`{greenBright Welcome to Sheng's terminal @ ${location.host}}`, 20, true)
-    try {
-        const res = await fetch('https://wttr.in/?format=3')
-        if (res.status === 200) {
-            const weatherText = await res.text()
-            await writeWithDelay(term, `Current weather: ${weatherText.replace('\n', '')}`, 20, true)
-        }
-    } catch (e) {
-        console.error('Failed to fetch the weather', e)
-    }
+    await weather(term)
     await writeWithDelay(term, chalk`{yellowBright Type in 'help' for available commands}`, 20, true)
     await writeln(term, '')
     return 0

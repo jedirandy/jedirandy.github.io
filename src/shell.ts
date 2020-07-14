@@ -22,10 +22,11 @@ class Shell {
         const query = new URLSearchParams(location.search)
         if (query.get('init') === 'false') {
             this.printPrompt()
+            this.term.onKey(({ domEvent }) => this.onKeyEvent(domEvent))
         } else {
             init(this.term).then(() => {
-                this.term.onKey(({ domEvent }) => this.onKeyEvent(domEvent))
                 this.printPrompt()
+                this.term.onKey(({ domEvent }) => this.onKeyEvent(domEvent))
                 this.term.focus()
             })
         }
@@ -49,9 +50,9 @@ class Shell {
             case 'Enter':
                 (async () => {
                     await writeln(this.term, '')
-                    const cmd = this.buffer.join('');
+                    const [cmd, ...args] = this.buffer.join('').split(' ')
                     if (cmd in this.programs) {
-                        await this.programs[cmd](this.term);
+                        await this.programs[cmd](this.term, ...args)
                         this.history.push(cmd)
                     } else {
                         if (cmd.length > 0)
@@ -70,7 +71,7 @@ class Shell {
             case 'Tab':
                 break
             default:
-                if (ev.ctrlKey == false && ev.altKey == false) {
+                if (ev.ctrlKey === false && ev.altKey === false && ev.key.length === 1) {
                     this.buffer.push(ev.key)
                     this.term.write(ev.key)
                 }
