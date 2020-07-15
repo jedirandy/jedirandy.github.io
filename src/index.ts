@@ -1,5 +1,6 @@
 import 'xterm/css/xterm.css'
 import './index.css'
+import 'hack-font/build/web/hack.css'
 
 import { Terminal } from 'xterm'
 import { FitAddon } from 'xterm-addon-fit'
@@ -17,8 +18,9 @@ const div = document.getElementById('term')
 div.style.backgroundColor = backgroundColor
 const term = new Terminal({
     theme: {
-        background: backgroundColor
+        background: backgroundColor,
     },
+    fontFamily: 'Hack, monospace',
     cursorBlink: true,
 })
 

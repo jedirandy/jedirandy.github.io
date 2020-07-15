@@ -15,17 +15,15 @@ const init = async (term: Terminal) => {
     await writeWithDelay(term, chalk`{greenBright [${new Date().toLocaleString()}] Initialized}`, 20, true)
     await writeln(term, '')
 
-    // 3d ascii hiya
-    await writeWithDelay(term, ' ___  ___  ___      ___    ___ ________  ___       ', 1, true)
-    await writeWithDelay(term, '|\\  \\|\\  \\|\\  \\    |\\  \\  /  /|\\   __  \\|\\  \\      ', 1, true)
-    await writeWithDelay(term, '\\ \\  \\\\\\  \\ \\  \\   \\ \\  \\/  / | \\  \\|\\  \\ \\  \\     ', 1, true)
-    await writeWithDelay(term, ' \\ \\   __  \\ \\  \\   \\ \\    / / \\ \\   __  \\ \\  \\    ', 1, true)
-    await writeWithDelay(term, '  \\ \\  \\ \\  \\ \\  \\   \\/  /  /   \\ \\  \\ \\  \\ \\__\\   ', 1, true)
-    await writeWithDelay(term, '   \\ \\__\\ \\__\\ \\__\\__/  / /      \\ \\__\\ \\__\\|__|   ', 1, true)
-    await writeWithDelay(term, '    \\|__|\\|__|\\|__|\\___/ /        \\|__|\\|__|   ___ ', 1, true)
-    await writeWithDelay(term, '                  \\|___|/                     |\\__\\', 1, true)
-    await writeWithDelay(term, '                                              \\|__|', 1, true)
+    // aloha
+    await writeWithDelay(term, '   _   _       _             _ ', 5, true)
+    await writeWithDelay(term, '  /_\\ | | ___ | |__   __ _  / \\', 5, true)
+    await writeWithDelay(term, ' //_\\\\| |/ _ \\| \'_ \\ / _\\` |/  /', 5, true)
+    await writeWithDelay(term, '/  _  \\ | (_) | | | | (_| /\\_/ ', 5, true)
+    await writeWithDelay(term, '\\_/ \\_/_|\\___/|_| |_|\\__,_\\/   ', 5, true)
+    await writeWithDelay(term, '                               ', 5, true)
     await writeln(term, '')
+
 
     await writeWithDelay(term, chalk`{greenBright Welcome to Sheng's terminal @ ${location.host}}`, 20, true)
     await weather(term)
