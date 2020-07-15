@@ -1,6 +1,5 @@
-import { Program } from '../types'
 import { Terminal } from 'xterm'
-import { write, writeWithDelay, delay, writeln } from '../utils'
+import { writeWithDelay, delay, writeln } from '../utils'
 import { chalk } from '../global'
 import weather from './weather'
 

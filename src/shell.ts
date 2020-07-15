@@ -2,7 +2,7 @@ import { Terminal } from 'xterm'
 import { chalk } from './global'
 import { Program } from './types'
 import init from './bin/init'
-import { write, writeln } from './utils'
+import { writeln } from './utils'
 
 class Shell {
     term: Terminal

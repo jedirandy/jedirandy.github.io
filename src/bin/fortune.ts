@@ -1,9 +1,8 @@
 import { Program } from '../types'
 import { Terminal } from 'xterm'
-import { writeWithDelay, write, writeln } from '../utils'
+import { writeWithDelay, writeln } from '../utils'
 
-const fortune: Program = async (term: Terminal, ...args: string[]) => {
-    const loc = args.length > 0 ? args.join(' ') : ''
+const fortune: Program = async (term: Terminal) => {
     try {
         const res = await fetch(`https://api.ef.gy/fortune`)
         if (res.status === 200) {

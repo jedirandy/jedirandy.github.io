@@ -1,4 +1,4 @@
-import { writeln, writeWithDelay } from '../utils'
+import { writeWithDelay } from '../utils'
 import { Program } from '../types'
 import { chalk } from '../global'
 
