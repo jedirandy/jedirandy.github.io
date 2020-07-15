@@ -35,6 +35,7 @@ class Shell {
 
     addProgram(name: string, program: Program) {
         this.programs[name] = program
+        return this
     }
 
     onKeyEvent(ev: KeyboardEvent) {
