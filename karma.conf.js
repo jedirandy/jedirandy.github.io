@@ -11,7 +11,7 @@ module.exports = function (config) {
         preprocessors: {
             'test/**/*.ts': ['webpack']
         },
-        reporters: ['dots'],
+        reporters: ['mocha'],
         browsers: ['ChromeHeadless'],
         singleRun: true,
         webpack: webpackConfig,
