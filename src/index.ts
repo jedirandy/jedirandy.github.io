@@ -12,6 +12,7 @@ import about from './bin/about'
 import bye from './bin/bye'
 import weather from './bin/weather'
 import fortune from './bin/fortune'
+import joke from './bin/joke'
 
 const backgroundColor = '#182631'
 const div = document.getElementById('term')
@@ -38,3 +39,4 @@ shell
     .addProgram('bye', bye)
     .addProgram('weather', weather)
     .addProgram('fortune', fortune)
+    .addProgram('joke', joke)

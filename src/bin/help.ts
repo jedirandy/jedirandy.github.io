@@ -10,7 +10,9 @@ const help: Program = async (term: Terminal, ...args: string[]) => {
     await writeln(term, chalk.yellowBright('> weather [optional location]'))
     await writeln(term, `  Shows the weather for the location, for example: weather svalbard`)
     await writeln(term, chalk.yellowBright('> fortune'))
-    await writeln(term, `  Prints a random quote`)
+    await writeln(term, `  Gives a random quote`)
+    await writeln(term, chalk.yellowBright('> joke'))
+    await writeln(term, `  Tells a random joke`)
     await writeln(term, chalk.yellowBright('> clear'))
     await writeln(term, `  Clears the terminal, ctrl + l also works`)
     return 0
