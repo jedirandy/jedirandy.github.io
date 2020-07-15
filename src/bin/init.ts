@@ -18,7 +18,7 @@ const init = async (term: Terminal) => {
     // aloha
     await writeWithDelay(term, '   _   _       _             _ ', 5, true)
     await writeWithDelay(term, '  /_\\ | | ___ | |__   __ _  / \\', 5, true)
-    await writeWithDelay(term, ' //_\\\\| |/ _ \\| \'_ \\ / _\\` |/  /', 5, true)
+    await writeWithDelay(term, ' //_\\\\| |/ _ \\| \'_ \\ / _\\`|/  /', 5, true)
     await writeWithDelay(term, '/  _  \\ | (_) | | | | (_| /\\_/ ', 5, true)
     await writeWithDelay(term, '\\_/ \\_/_|\\___/|_| |_|\\__,_\\/   ', 5, true)
     await writeWithDelay(term, '                               ', 5, true)
