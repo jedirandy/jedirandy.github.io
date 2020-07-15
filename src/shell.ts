@@ -2,7 +2,8 @@ import { Terminal } from 'xterm'
 import { chalk } from './global'
 import { Program } from './types'
 import init from './bin/init'
-import { writeln } from './utils'
+import { writeln, backspace, write } from './utils'
+import History from './history'
 
 class Shell {
     term: Terminal
@@ -10,13 +11,13 @@ class Shell {
     programs: {
         [k: string]: Program
     }
-    history: string[]
+    history: History
 
     constructor(term: Terminal) {
         this.term = term
         // input characters buffer
         this.buffer = []
-        this.history = []
+        this.history = new History()
         this.programs = {
             'clear': () => this.clear(),
         }
@@ -54,8 +55,8 @@ class Shell {
                     await writeln(this.term, '')
                     const [cmd, ...args] = this.buffer.join('').split(' ')
                     if (cmd in this.programs) {
-                        await this.programs[cmd](this.term, ...args)
                         this.history.push(cmd)
+                        await this.programs[cmd](this.term, ...args)
                     } else {
                         if (cmd.length > 0)
                             await writeln(this.term, `command not found: ${cmd}, use 'help' for available commands`)
@@ -67,15 +68,21 @@ class Shell {
             case 'Backspace':
                 if (this.buffer.length > 0) {
                     this.buffer.pop()
-                    this.term.write('\b \b')
+                    backspace(this.term, 1)
                 }
                 break
             case 'Tab':
                 break
+            case 'ArrowUp':
+                this.replaceBuffer(this.history.prev())
+                break
+            case 'ArrowDown':
+                this.replaceBuffer(this.history.next())
+                break
             default:
                 if (ev.ctrlKey === false && ev.altKey === false && ev.key.length === 1) {
                     this.buffer.push(ev.key)
-                    this.term.write(ev.key)
+                    write(this.term, ev.key)
                 }
         }
     }
@@ -86,8 +93,13 @@ class Shell {
     }
 
     printPrompt() {
-        this.term.write(chalk`{cyanBright ${location.hostname} }`)
-        this.term.write(chalk`{greenBright ❯ }`)
+        write(this.term, `${chalk.cyanBright(location.hostname)} ${chalk.greenBright('❯ ')}`)
+    }
+
+    async replaceBuffer(text: string) {
+        await backspace(this.term, this.buffer.length)
+        this.buffer = text.split('')
+        await write(this.term, text)
     }
 }
 

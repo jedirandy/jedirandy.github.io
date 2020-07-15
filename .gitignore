@@ -6,7 +6,7 @@ node_modules/
 dist/
 !dist/CNAME
 # misc
-.vscode
+.vscode/
 .DS_Store
 .env.local
 .env.development.local

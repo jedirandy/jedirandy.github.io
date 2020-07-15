@@ -10,11 +10,20 @@
     "xterm-addon-web-links": "^0.4.0"
   },
   "devDependencies": {
+    "@types/chai": "^4.2.11",
     "@types/html-webpack-plugin": "^3.2.3",
+    "@types/mocha": "^8.0.0",
+    "chai": "^4.2.0",
     "css-loader": "^3.6.0",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
     "husky": "^4.2.5",
+    "karma": "^5.1.0",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-mocha": "^2.0.1",
+    "karma-webpack": "^4.0.2",
+    "mocha": "^8.0.1",
     "style-loader": "^1.2.1",
     "ts-loader": "^8.0.0",
     "tslint": "^6.1.2",
@@ -25,8 +34,10 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack",
     "lint": "tslint --project .",
+    "test": "karma start",
+    "test-dev": "karma start --single-run=false",
+    "build": "webpack",
     "deploy": "git tag -f deploy && git push -f origin deploy"
   },
   "husky": {

@@ -6,6 +6,12 @@ function delay(ms: number): Promise<void> {
     })
 }
 
+async function backspace(term: Terminal, charCount: number): Promise<void> {
+    for (let i = 0; i < charCount; ++i) {
+        await term.write('\b \b')
+    }
+}
+
 async function write(term: Terminal, data: string): Promise<void> {
     await new Promise(resolve => term.write(data, resolve))
 }
@@ -27,5 +33,6 @@ export {
     delay,
     write,
     writeln,
-    writeWithDelay
+    writeWithDelay,
+    backspace
 }
