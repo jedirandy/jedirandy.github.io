@@ -13,3 +13,4 @@ deploy:
   target_branch: master
   on:
     branch: src
+    tags: true

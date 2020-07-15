@@ -24,6 +24,7 @@
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
-    "lint": "tslint --project ."
+    "lint": "tslint --project .",
+    "deploy": "git tag -f deploy && git push -f origin deploy"
   }
 }
