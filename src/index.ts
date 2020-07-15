@@ -25,6 +25,7 @@ const term = new Terminal({
 const fitAddon = new FitAddon()
 term.loadAddon(fitAddon)
 term.loadAddon(new WebLinksAddon())
+onresize = () => fitAddon.fit()
 term.open(div)
 fitAddon.fit()
 
