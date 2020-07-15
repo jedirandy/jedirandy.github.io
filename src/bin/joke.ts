@@ -3,7 +3,7 @@ import { Terminal } from 'xterm'
 import { writeWithDelay, delay } from '../utils'
 import { chalk } from '../global'
 
-const weather: Program = async (term: Terminal, ...args: string[]) => {
+const joke: Program = async (term: Terminal, ...args: string[]) => {
     try {
         const res = await fetch('https://official-joke-api.appspot.com/random_joke')
         if (res.status === 200) {
@@ -14,10 +14,10 @@ const weather: Program = async (term: Terminal, ...args: string[]) => {
         }
     } catch (e) {
         await writeWithDelay(term, `Error fetching the data, try again later`, 20, true)
-        console.error('Failed to fetch the weather', e)
+        console.error('Failed to fetch the joke', e)
         return 1
     }
     return 0
 }
 
-export default weather
+export default joke

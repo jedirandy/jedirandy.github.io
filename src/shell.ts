@@ -33,8 +33,8 @@ class Shell {
         }
     }
 
-    addProgram(name: string, program: Program) {
-        this.programs[name] = program
+    addProgram(program: Program) {
+        this.programs[program.name] = program
         return this
     }
 
