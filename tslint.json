@@ -5,15 +5,9 @@
     ],
     "jsRules": {},
     "rules": {
-        "eofline": false,
-        "no-trailing-whitespace": false,
-        "comment-format": false,
         "quotemark": [true, "single"],
         "semicolon": [true, "never"],
-        "no-console": false,
-        "one-line": false,
-        "no-consecutive-blank-lines": false,
-        "curly": false
+        "no-console": false
     },
     "rulesDirectory": []
 }
