@@ -1,6 +1,8 @@
 import 'xterm/css/xterm.css'
-import './index.css'
 import 'hack-font/build/web/hack.css'
+import './index.css'
+
+import './assets/favicon.ico'
 
 import { Terminal } from 'xterm'
 import { FitAddon } from 'xterm-addon-fit'

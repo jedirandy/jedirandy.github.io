@@ -1,5 +1,6 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require('path')
+const HtmlPlugin = require('html-webpack-plugin')
+const CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
     entry: './src/index.ts',
@@ -22,6 +23,15 @@ module.exports = {
                         outputPath: 'fonts/'
                     }
                 }],
+            },
+            {
+                test: /\.(ico)$/,
+                use: [{
+                    loader: 'file-loader',
+                    options: {
+                        name: '[name].[ext]',
+                    }
+                }],
             }
         ],
     },
@@ -33,11 +43,19 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-        new HtmlWebpackPlugin({ template: './src/index.html' })
+        new HtmlPlugin({
+            favicon: 'src/assets/favicon.ico',
+            template: 'src/assets/index.html'
+        }),
+        new CopyPlugin({
+            patterns: [
+                { from: 'src/assets/CNAME' }
+            ]
+        })
     ],
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
         port: 9000
     },
-};
+}

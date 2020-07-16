@@ -11,6 +11,7 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   local_dir: dist
+  committer_from_gh: true
   target_branch: master
   on:
     branch: src
