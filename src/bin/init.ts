@@ -27,7 +27,7 @@ const init = async (term: Terminal) => {
 
     await writeWithDelay(term, chalk`{greenBright Welcome to Sheng's terminal @ ${location.host}}`, 20, true)
     await weather(term)
-    await writeWithDelay(term, chalk`{yellowBright Type in 'help' for available commands}`, 20, true)
+    await writeWithDelay(term, chalk`{yellowBright Type in 'help' for available commands, don't forget to press 'Enter'}`, 20, true)
     await writeln(term, '')
     return 0
 }
