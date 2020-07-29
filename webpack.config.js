@@ -1,6 +1,7 @@
 const path = require('path')
 const HtmlPlugin = require('html-webpack-plugin')
 const CopyPlugin = require('copy-webpack-plugin')
+const PreloadPlugin = require('preload-webpack-plugin')
 
 module.exports = {
     entry: './src/index.ts',
@@ -46,6 +47,11 @@ module.exports = {
         new HtmlPlugin({
             favicon: 'src/assets/favicon.ico',
             template: 'src/assets/index.html'
+        }),
+        new PreloadPlugin({
+            rel: 'preload',
+            include: 'allAssets',
+            fileWhitelist: [/regular\.woff2/]
         }),
         new CopyPlugin({
             patterns: [

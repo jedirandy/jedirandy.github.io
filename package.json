@@ -5,6 +5,7 @@
   "dependencies": {
     "chalk": "^4.1.0",
     "hack-font": "^3.3.0",
+    "preload-webpack-plugin": "3.0.0-beta.3",
     "xterm": "^4.8.1",
     "xterm-addon-fit": "^0.4.0",
     "xterm-addon-web-links": "^0.4.0"
