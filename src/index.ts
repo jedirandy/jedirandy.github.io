@@ -13,7 +13,6 @@ import help from './bin/help'
 import about from './bin/about'
 import bye from './bin/bye'
 import weather from './bin/weather'
-import fortune from './bin/fortune'
 import joke from './bin/joke'
 
 const backgroundColor = '#182631'
@@ -43,5 +42,4 @@ shell
   .addProgram('about', about)
   .addProgram('bye', bye)
   .addProgram('weather', weather)
-  .addProgram('fortune', fortune)
   .addProgram('joke', joke)

@@ -10,10 +10,8 @@
     "hack-font": "^3.3.0"
   },
   "devDependencies": {
-    "@types/html-webpack-plugin": "^3.2.3",
     "@typescript-eslint/eslint-plugin": "^8.37.0",
     "@typescript-eslint/parser": "^8.37.0",
-    "@vitejs/plugin-react": "^4.6.0",
     "eslint": "^9.31.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-plugin-prettier": "^5.5.1",
@@ -36,7 +34,7 @@
     "*.ts": [
       "eslint --fix",
       "prettier --write",
-      "tsc --noEmit"
+      "sh -c 'tsc --noEmit'"
     ]
   }
 }

@@ -1,5 +1,5 @@
 import { Terminal } from '@xterm/xterm'
-import { writeWithDelay, delay, writeln } from '../utils'
+import { writeWithDelay, writeln } from '../utils'
 import { chalk } from '../global'
 import weather from './weather'
 
@@ -8,19 +8,6 @@ const init = async (term: Terminal) => {
   await writeWithDelay(
     term,
     `[${new Date().toLocaleString()}] Initializing`,
-    20
-  )
-  await writeWithDelay(term, `...`, 200, true)
-  await writeWithDelay(
-    term,
-    chalk`{redBright [${new Date().toLocaleString()}] Kernel panic: the world is on fire}`,
-    20
-  )
-  await writeWithDelay(term, chalk`{redBright !!!}`, 100, true)
-  await delay(Math.random() * 1000)
-  await writeWithDelay(
-    term,
-    chalk`{yellowBright [${new Date().toLocaleString()}] Let's not worry about it for now, resume initialization}`,
     20
   )
   await writeWithDelay(term, chalk`{yellowBright ...}`, 200, true)

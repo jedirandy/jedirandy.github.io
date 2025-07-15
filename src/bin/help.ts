@@ -19,8 +19,6 @@ const help: Program = async (term: Terminal, ..._args: string[]) => {
     term,
     `  Shows the weather for the location, for example: weather svalbard`
   )
-  await writeln(term, chalk.yellowBright('- fortune'))
-  await writeln(term, `  Gives a random quote`)
   await writeln(term, chalk.yellowBright('- joke'))
   await writeln(term, `  Tells a random joke`)
   return 0
