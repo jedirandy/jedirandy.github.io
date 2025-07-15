@@ -3,49 +3,40 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@xterm/addon-fit": "^0.10.0",
+    "@xterm/addon-web-links": "^0.11.0",
+    "@xterm/xterm": "^5.5.0",
     "chalk": "^4.1.0",
-    "hack-font": "^3.3.0",
-    "preload-webpack-plugin": "3.0.0-beta.3",
-    "xterm": "^4.8.1",
-    "xterm-addon-fit": "^0.4.0",
-    "xterm-addon-web-links": "^0.4.0"
+    "hack-font": "^3.3.0"
   },
   "devDependencies": {
-    "@types/chai": "^4.2.11",
     "@types/html-webpack-plugin": "^3.2.3",
-    "@types/mocha": "^8.0.0",
-    "chai": "^4.2.0",
-    "copy-webpack-plugin": "^6.0.3",
-    "css-loader": "^3.6.0",
-    "file-loader": "^6.0.0",
-    "html-webpack-plugin": "^4.3.0",
-    "husky": "^4.2.5",
-    "karma": "^5.1.0",
-    "karma-chai": "^0.1.0",
-    "karma-chrome-launcher": "^3.1.0",
-    "karma-mocha": "^2.0.1",
-    "karma-mocha-reporter": "^2.2.5",
-    "karma-webpack": "^4.0.2",
-    "mocha": "^8.0.1",
-    "style-loader": "^1.2.1",
-    "ts-loader": "^8.0.0",
-    "tslint": "^6.1.2",
-    "typescript": "^3.9.6",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "@typescript-eslint/eslint-plugin": "^8.37.0",
+    "@typescript-eslint/parser": "^8.37.0",
+    "@vitejs/plugin-react": "^4.6.0",
+    "eslint": "^9.31.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.5.1",
+    "lint-staged": "^16.1.2",
+    "prettier": "^3.6.2",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.4",
+    "vite-plugin-typescript": "^1.0.4",
+    "vitest": "^3.2.4"
   },
   "scripts": {
-    "start": "webpack-dev-server",
-    "lint": "tslint --project .",
-    "test": "karma start",
-    "test-dev": "karma start --single-run=false",
-    "build": "webpack",
-    "deploy": "git tag -f deploy && git push -f origin deploy"
+    "start": "vite",
+    "build": "vite build",
+    "test": "vitest",
+    "lint": "eslint \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" \"*.{js,json,css,md}\"",
+    "typecheck": "tsc --noEmit"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run lint"
-    }
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write",
+      "tsc --noEmit"
+    ]
   }
 }
